@@ -14,10 +14,15 @@ namespace CarFleet.Models
 		public int CarId { get; set; }
 		[ForeignKey("CarId")]
 		public Car Car { get; set; }
+		[Display(Name="Cena wywoławcza")]
 		public double PriceFirst { get; set; }
+		[Display(Name = "Cena aktualna")]
 		public double PriceActual { get; set; }
+		
 		public DateTime DateStart { get; set; }
+		[Display(Name = "Data zakończenia")]
 		public DateTime DateEnd { get; set; }
+		[Display(Name = "Lokalizacja")]
 		public string Location { get; set; }
 
 	}

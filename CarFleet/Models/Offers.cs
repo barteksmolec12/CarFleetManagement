@@ -21,6 +21,7 @@ namespace CarFleet.Models
 		
 		public DateTime DateStart { get; set; }
 		[Display(Name = "Data zakończenia")]
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
 		public DateTime DateEnd { get; set; }
 		[Display(Name = "Lokalizacja")]
 		public string Location { get; set; }

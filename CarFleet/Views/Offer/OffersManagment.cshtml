@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Offers>
+@{
+    ViewData["Title"] = "OffersManagment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+
+    body {
+        background-color: #B1C9E4
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<div class="backgroundWhiteBorder">
+    <h2 class="text-info">Zarządzaj aukcjami</h2>
+    <br />
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Car.CarName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.PriceFirst)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.DateEnd)
+                    </th>
+                    <th></th>
+                    <th></th>
+
+                </tr>
+            </thead>
+
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@Html.DisplayFor(m => item.Car.CarName)</td>
+                        <td>@Html.DisplayFor(m => item.PriceFirst)</td>
+                        <td>@Html.DisplayFor(m => item.DateEnd)</td>
+                        <td> <partial name="_TableButtons" model="item.Id" /></td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+
+
+        <div class="container">
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                    <div class="alert alert-danger alert-dismissible" id="alert">
+                        <a class="close" data-dismiss="modal" aria-label="close">&times;</a>
+                        Aukcja została usunięta !
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Usuwanie aukcji</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Czy chcesz usunąć tą aukcję ?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-dismiss="modal">Usuń</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*///////////////*@
+    </div>
+</div>

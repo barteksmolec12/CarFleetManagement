@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CarFleet.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarFleet.Controllers
 {
@@ -39,6 +40,13 @@ namespace CarFleet.Controllers
 			return View(offerModel);
 
 		}
+		public async Task <IActionResult> OffersManagment()
+		{
+			var offers = await _db.Offers.Include(c => c.Car).ToListAsync();
+			return View(offers);
+		}
+
+
 
 
 	}

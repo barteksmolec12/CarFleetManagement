@@ -16,20 +16,24 @@
 
 
 
-<form>
+<form method="post" asp-action="CreateOffer">
     <div class="backgroundWhiteBorder">
-        <br />
+        <input type="hidden" asp-for="@Model.Id" />
         <h2 class="text-info">Dodaj nową ofertę</h2>
         <br />
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label asp-for="@Model.Car.CarName" class="col-form-label"></label>
                 <input asp-for="@Model.Car.CarName" class="form-control" />
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-4">
                 <label asp-for="@Model.Location" class="col-form-label"></label>
                 <input asp-for="@Model.Location" class="form-control" />
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="@Model.PriceFirst" class="col-form-label"></label>
+                <input asp-for="@Model.PriceFirst" class="form-control" />
             </div>
         </div>
 
@@ -85,25 +89,29 @@
             </div>
             <div class="form-group col-md-4">
                 <label asp-for="@Model.Car.EnginePower" class="col-form-label"></label>
-                <select asp-for="@Model.Car.EnginePower" asp-items="Html.GetEnumSelectList<Car.EFuelType>()" class="form-control"></select>
+                <input asp-for="@Model.Car.EnginePower" class="form-control" />
             </div>
             <div class="form-group col-md-4">
-                <label asp-for="@Model.PriceFirst" class="col-form-label"></label>
-                <input asp-for="@Model.PriceFirst" class="form-control" />
+                <label asp-for="@Model.Car.Capacity" class="col-form-label"></label>
+                <input asp-for="@Model.Car.Capacity" class="form-control" />
             </div>
+
         </div>
 
 
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label asp-for="@Model.Car.Description" class="col-form-label"></label>
-                <textarea asp-for="@Model.Car.Description"class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                <textarea asp-for="@Model.Car.Description" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
             </div>
-       </div>
-
-
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <div class="col-md-12 text-center">
+            <button  type="submit" style="width:50%;" class="btn btn-primary">Dodaj ofertę </button>
+        </div>
+        
+        
+        </div>
+
 
 
 </form>

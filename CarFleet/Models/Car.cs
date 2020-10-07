@@ -10,6 +10,7 @@ namespace CarFleet.Models
 	{
 		[Key]
 		public int Id { get; set; }
+		[Required]
 		[Display(Name ="Nazwa samochodu")]
 		public string  CarName { get; set; }
 		[Display(Name = "Kolor")]
@@ -37,7 +38,7 @@ namespace CarFleet.Models
 		[Display(Name = "Przebieg")]
 		public long Mileage { get; set; }
 		[Display(Name = "Pojemność")]
-		public double Capacity { get; set; }
+		public string Capacity { get; set; }
 		[Display(Name = "Moc silnika")]
 		public int EnginePower { get; set; }
 		[Display(Name = "Rodzaj paliwa")]

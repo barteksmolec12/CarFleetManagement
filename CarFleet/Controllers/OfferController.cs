@@ -24,7 +24,22 @@ namespace CarFleet.Controllers
 			Offers offerModel = new Offers();
 			return View(offerModel);
 		}
-		
+		[ValidateAntiForgeryToken]
+		[HttpPost]
+		public async Task <IActionResult> CreateOffer(Offers offerModel)
+		{
+			if(ModelState.IsValid)
+			{
+				offerModel.PriceActual = offerModel.PriceFirst;
+				offerModel.DateStart = DateTime.Now;
+				_db.Offers.Add(offerModel);
+				await _db.SaveChangesAsync();
+				return RedirectToAction(nameof(CreateOffer));
+			}
+			return View(offerModel);
+
+		}
+
 
 	}
 }

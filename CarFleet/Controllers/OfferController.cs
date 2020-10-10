@@ -77,7 +77,7 @@ namespace CarFleet.Controllers
 			{
 
 				//var offerFromDb = await _db.Offers.Include(s => s.Car).Where(s => s.CarId == offerModel.CarId).FirstOrDefaultAsync();
-				_db.Offers.Update(offerModel);
+				_db.Offers.Update(offerModel);	
 				await _db.SaveChangesAsync();
 				return RedirectToAction(nameof(OffersManagment));
 			}
